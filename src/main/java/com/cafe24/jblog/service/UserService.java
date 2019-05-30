@@ -12,7 +12,9 @@ import com.cafe24.jblog.vo.UserVo;
 
 @Service
 public class UserService {
+	private final String DEFAULT_TITLE="기본 타이틀";
 	private final String DEFAULT_LOGO="/assets/images/spring-logo.jpg";
+	private final String DEFAULT_CATEGORY="기본 카테고리";
 	
 	@Autowired
 	private UserDao userDao;
@@ -28,18 +30,22 @@ public class UserService {
 		
 		BlogVo blogVo = new BlogVo();
 		blogVo.setId(userVo.getId());
-		blogVo.setTitle("기본 타이틀");
+		blogVo.setTitle(DEFAULT_TITLE);
 		blogVo.setLogo(DEFAULT_LOGO);
 		blogDao.insert(blogVo);
 		
 		CategoryVo categoryVo = new CategoryVo();
-		categoryVo.setName("기본 카테고리");
-		categoryVo.setDescription("기본 카테고리");
+		categoryVo.setName(DEFAULT_CATEGORY);
+		categoryVo.setDescription(DEFAULT_CATEGORY);
 		categoryVo.setBlogId(blogVo.getId());
 		categoryDao.insert(categoryVo);
 	}
 	
 	public UserVo getUser(UserVo userVo) {
 		return userDao.get(userVo);
+	}
+	
+	public boolean existId(String id) {
+		return userDao.getById(id) != null;
 	}
 }

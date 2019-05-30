@@ -17,10 +17,19 @@
 		<c:import url="/WEB-INF/views/includes/blogheader.jsp" />
 		<div id="wrapper">
 			<div id="content">
-				<div class="blog-content">
-					<h4>${postVo.title }</h4>
-					<p>${fn:replace(postVo.content, newline, "<br/>") }<p>
-				</div>
+				<c:choose>
+					<c:when test="${fn:length(postList) != 0 }">
+						<div class="blog-content">
+							<h4>${postVo.title }</h4>
+							<p>${fn:replace(postVo.content, newline, "<br/>") }<p>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="blog-content">
+							<h3>아직 작성된 글이 없습니다!</h3>
+						</div>
+					</c:otherwise>
+				</c:choose>
 				<ul class="blog-list">
 					<c:forEach items="${postList }" var="vo">
 						<li><a href="${pageContext.request.contextPath }/${blogVo.id }/${vo.categoryNo }/${vo.no }">${vo.title }</a> <span>${vo.regDate }</span></li>

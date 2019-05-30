@@ -14,7 +14,7 @@ import com.cafe24.jblog.vo.BlogVo;
 
 @Service
 public class BlogService {
-	private static final String SAVE_PATH = "/mysite-uploads";
+	private static final String SAVE_PATH = "/jblog-uploads";
 	private static final String URL = "/images";
 	private static final String SAVE_FILE_NAME = "logo";
 	

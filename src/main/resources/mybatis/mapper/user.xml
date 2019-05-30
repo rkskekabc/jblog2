@@ -17,4 +17,12 @@
 				where id=#{id } and password=password(#{password })
 		]]>
 	</select>
+	
+	<select id="getByEmail" parameterType="string" resultType="uservo">
+		<![CDATA[
+			select id, name 
+				from users 
+				where id=#{value }
+		]]>
+	</select>
 </mapper>

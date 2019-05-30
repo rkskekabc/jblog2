@@ -16,6 +16,10 @@ public class UserDao {
 		return userVo.getId();
 	}
 	
+	public UserVo getById(String id) {
+		return sqlSession.selectOne("user.getByEmail", id);
+	}
+	
 	public UserVo get(UserVo userVo) {
 		return sqlSession.selectOne("user.select", userVo);
 	}

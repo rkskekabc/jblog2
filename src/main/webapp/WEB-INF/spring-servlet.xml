@@ -17,7 +17,7 @@
 	<mvc:annotation-driven />
 	
 	<!-- the mvc resources tag does the magic -->
-	<mvc:resources mapping="/images/**" location="file:/mysite-uploads/" order="-1" />
+	<mvc:resources mapping="/images/**" location="file:/jblog-uploads/" order="-1" />
 	
 	<!-- 서블릿 컨테이너의 디폴트 서블릿 위임 핸들러  -->
 	<mvc:default-servlet-handler/>
@@ -36,6 +36,15 @@
     		<bean class="com.cafe24.jblog.security.AuthAdminInterceptor" />
         </mvc:interceptor>
     </mvc:interceptors>
+    
+    <!-- MessageSource -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	   <property name="basenames">
+	      <list>
+			<value>messages/messages_ko</value>
+	      </list>
+	   </property>
+	</bean>
 
 	<!-- ViewResolver 설정 -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -1,8 +1,13 @@
 package com.cafe24.jblog.vo;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class UserVo {
+	@NotEmpty
 	private String id;
+	@NotEmpty
 	private String name;
+	@NotEmpty
 	private String password;
 	private String regDate;
 	public String getId() {
