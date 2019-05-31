@@ -48,9 +48,13 @@ public class BlogController {
 		Long categoryNo = pathVar1.isPresent() ? pathVar1.get() : categoryService.getMinNum(id);
 		Long postNo = pathVar2.isPresent() ? pathVar2.get() : postService.getMinNum(categoryNo);
 		List<CategoryVo> categoryList = categoryService.getCategoryListMini(id);
-		List<PostVo> postList = postService.getPostList(categoryNo);
 		
 		PostVo dummyPostVo = new PostVo();
+		dummyPostVo.setBlogId(id);
+		dummyPostVo.setCategoryNo(categoryNo);
+		List<PostVo> postList = postService.getPostList(dummyPostVo);
+		
+		dummyPostVo = new PostVo();
 		dummyPostVo.setBlogId(id);
 		dummyPostVo.setNo(postNo);
 		dummyPostVo.setCategoryNo(categoryNo);

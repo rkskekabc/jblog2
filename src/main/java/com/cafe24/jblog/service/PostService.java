@@ -17,8 +17,8 @@ public class PostService {
 		postDao.insert(postVo);
 	}
 	
-	public List<PostVo> getPostList(Long categoryNo){
-		return postDao.get(categoryNo);
+	public List<PostVo> getPostList(PostVo postVo){
+		return postDao.get(postVo);
 	}
 	
 	public PostVo getOne(PostVo postVo) {

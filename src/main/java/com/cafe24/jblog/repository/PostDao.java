@@ -17,8 +17,8 @@ public class PostDao {
 		sqlSession.insert("post.insert", postVo);
 	}
 	
-	public List<PostVo> get(Long categoryNo){
-		return sqlSession.selectList("post.getPostList", categoryNo);
+	public List<PostVo> get(PostVo postVo){
+		return sqlSession.selectList("post.getPostList", postVo);
 	}
 	
 	public PostVo getOne(PostVo postVo) {

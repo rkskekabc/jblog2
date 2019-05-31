@@ -19,11 +19,12 @@
 		]]>
 	</select>
 	
-	<select id="getPostList" parameterType="long" resultType="postvo">
+	<select id="getPostList" parameterType="postvo" resultType="postvo">
 		<![CDATA[
-			select no, title, content, reg_date as regDate, category_no as categoryNo
-				from post
-				where category_no=#{value }
+			select a.no, a.title, a.content, a.reg_date as regDate, a.category_no as categoryNo
+				from post a
+				join category b on a.category_no=b.no
+				where category_no=#{categoryNo } and b.blog_id=#{blogId }
 		]]>
 	</select>
 	
