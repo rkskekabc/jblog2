@@ -1,13 +1,17 @@
 package com.cafe24.jblog.vo;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+//@GroupSequence({UserVo.class, ValidSequence.class})
 public class UserVo {
 	@NotEmpty
+	@Length(min=2, max=10)
 	private String id;
 	@NotEmpty
 	private String name;
 	@NotEmpty
+	@Length(min=2, max=10)
 	private String password;
 	private String regDate;
 	public String getId() {
