@@ -51,6 +51,7 @@ public class BlogController {
 		List<PostVo> postList = postService.getPostList(categoryNo);
 		
 		PostVo dummyPostVo = new PostVo();
+		dummyPostVo.setBlogId(id);
 		dummyPostVo.setNo(postNo);
 		dummyPostVo.setCategoryNo(categoryNo);
 		PostVo postVo = postService.getOne(dummyPostVo);

@@ -12,9 +12,10 @@
 	
 	<select id="getOne" parameterType="postvo" resultType="postvo">
 		<![CDATA[
-			select title, content
-				from post
-				where category_no=#{categoryNo } and no=#{no }
+			select a.title, a.content
+				from post a 
+				join category b on a.category_no = b.no 
+				where category_no=#{categoryNo } and a.no=#{no } and b.blog_id=#{blogId }
 		]]>
 	</select>
 	
