@@ -15,7 +15,7 @@
 			</c:otherwise>
 		</c:choose>
 		<c:if test='${result == "fail" }'>
-			<li><p style="color: red">관리 권한이 없습니다.</p></li>
+			<li><p style="color: red; font-weight: bold">관리 권한이 없습니다.</p></li>
 		</c:if>
 	</ul>
 </div>
